@@ -10,13 +10,18 @@ const { model, subtitle, textButton, secondTextButton, image } = Astro.props
     src={image}
     alt=`Tesla ${model}`
   />
+  <div
+    slot='gradient'
+    class='absolute inset-0 bg-gradient-to-b from-white/60 to-transparent opacity-50'
+  >
+  </div>
   <div slot='footer' class='flex gap-x-6 justify-center'>
     <a
-      class='text-black border-[3px] border-white/5 text-sm rounded py-2 px-20 font-medium bg-white/70 hover:bg-black hover:text-white hover:border-black transition-colors'
+      class='text-black border-[3px] border-white/5 text-sm rounded py-2 px-4 md:px-20 font-medium bg-white/70 hover:bg-black hover:text-white hover:border-black transition-colors'
       href='#'>{textButton}</a
     >
     <a
-      class='text-white border-[3px] border-black/5 text-sm rounded py-2 px-20 font-medium bg-black/70 hover:bg-black/40 transition-colors'
+      class='text-white border-[3px] border-black/5 text-sm rounded py-2 px-4 md:px-20 font-medium bg-black/70 hover:bg-black/40 transition-colors'
       href='#'>{secondTextButton}</a
     >
   </div>
