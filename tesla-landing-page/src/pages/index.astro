@@ -2,7 +2,7 @@
 import NavBar from "../components/NavBar.astro"
 import Layout from "../layouts/Layout.astro"
 import HeroSection from "../components/HeroSection.astro"
-import ChargeSection from "../components/ChargeSection.astro"
+import ProductSection from "../components/ProductSection.astro"
 ---
 
 <Layout title='Tesla landing.'>
@@ -14,10 +14,40 @@ import ChargeSection from "../components/ChargeSection.astro"
       <HeroSection />
     </div>
     <div class='snap-center'>
-      <ChargeSection />
+      <ProductSection
+        model='Model 3'
+        subtitle='Starting at $32,740'
+        textButton='Explore Inventory'
+        secondTextButton='Custom order'
+        image='/model-3.avif'
+      />
     </div>
     <div class='snap-center'>
-      <HeroSection />
+      <ProductSection
+        model='Model Y'
+        subtitle='Starting at $40,240'
+        textButton='Explore Inventory'
+        secondTextButton='Custom Order'
+        image='/model-y.avif'
+      />
+    </div>
+    <div class='snap-center'>
+      <ProductSection
+        model='Model S'
+        subtitle='Explore Inventory'
+        textButton='Custom order'
+        secondTextButton='Demo Drive'
+        image='/model-s.avif'
+      />
+    </div>
+    <div class='snap-center'>
+      <ProductSection
+        model='Model X'
+        subtitle='Explore Inventory'
+        textButton='Custom order'
+        secondTextButton='Demo Drive'
+        image='/model-x.avif'
+      />
     </div>
   </main>
 </Layout>
