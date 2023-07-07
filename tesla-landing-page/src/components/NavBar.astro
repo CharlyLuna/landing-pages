@@ -1,4 +1,5 @@
 ---
+import HamburgerMenu from "./HamburgerMenu.astro"
 import Logo from "./Logo.astro"
 ---
 
@@ -7,9 +8,12 @@ import Logo from "./Logo.astro"
   class='py-4 px-10 flex items-center fixed top-0 w-full justify-between text-white z-40'
 >
   <div class='flex flex-grow basis-0'>
-    <Logo />
+    <a href='/'>
+      <Logo />
+    </a>
   </div>
-  <nav>
+
+  <nav class='hidden xl:flex'>
     <ul
       class='flex text-sm [&>li>a]:inline-block [&>li>a]:transition-colors [&>li>a]:duration-300 [&>li>a]:font-medium [&>li>a]:px-4 [&>li>a]:py-2'
     >
@@ -22,21 +26,45 @@ import Logo from "./Logo.astro"
     </ul>
   </nav>
 
-  <nav class='flex flex-grow justify-end basis-0'>
+  <nav class='hidden xl:flex flex-grow justify-end basis-0'>
     <ul
       class='flex text-sm [&>li>a]:inline-block [&>li>a]:transition-colors [&>li>a]:duration-300 [&>li>a]:font-medium [&>li>a]:px-4 [&>li>a]:py-2'
     >
       <li><a href='#'>Shop</a></li>
       <li><a href='#'>Account</a></li>
-      <li><a href='#'>Menu</a></li>
+      <li class='menu'><a href='#'>Menu</a></li>
     </ul>
   </nav>
+
+  <div class='menu flex flex-grow justify-end basis-0 xl:hidden'>
+    <button class='bg-black/10 px-4 py-1 rounded backdrop-blur-lg'>Menu</button>
+  </div>
+
+  <HamburgerMenu />
+
   <div
     id='menu-backdrop'
     class='absolute bg-black/10 backdrop-blur-lg rounded translate-x-[var(--left)] translate-y-[var(--top)] w-[var(--width)] h-[var(--height)] transition-all duration-500 ease-in-out opacity-0 -z-10 top-0 left-0'
   >
   </div>
 </header>
+
+<script>
+  const menuElement = document.querySelectorAll(".menu")
+  const closeIcon = document.querySelector("#close-icon")
+  const hamburgerMenu = document.querySelector("#hamburger-menu") as HTMLElement
+
+  menuElement.forEach((menu) => {
+    menu.addEventListener(
+      "click",
+      () => (hamburgerMenu.style.display = "block")
+    )
+    closeIcon.addEventListener(
+      "click",
+      () => (hamburgerMenu.style.display = "none")
+    )
+  })
+</script>
 
 <script>
   const listItem = document.querySelectorAll("#navbar li")
