@@ -33,7 +33,7 @@
 
     <main>
       <section
-        id='boxers'
+        id='fighters'
         class={`flex justify-between relative 
         [&>div>img]:absolute 
         [&>div>img]:bottom-0 
@@ -162,3 +162,41 @@
     font-weight: bold;
   }
 </style>
+
+<script>
+  const fighters = document.querySelector("#fighters")
+  const fightersImages = fighters.querySelectorAll("img")
+
+  fightersImages.forEach((img) => {
+    img.addEventListener("mouseleave", () => {
+      fightersImages.forEach((img) => {
+        img.setAttribute("style", "transition: all .3s ease-in-out")
+      })
+    })
+    img.addEventListener("mouseenter", () => {
+      const sectionImages = img.parentNode.children
+      const position = Array.from(sectionImages).indexOf(img)
+      // Get left fighter and right fighter from position
+      const [leftFighter, rightFighter] = [
+        fightersImages[position],
+        fightersImages[position + fightersImages.length / 2],
+      ]
+      // Hide non highlighted fighters
+      fightersImages.forEach((img) => {
+        img.setAttribute(
+          "style",
+          "filter: blur(2px) grayscale(.8); transition: all .3s ease-in-out"
+        )
+      })
+
+      leftFighter.setAttribute(
+        "style",
+        "scale: 1.05; contrast: 1.1; transition: all .3s ease-in-out"
+      )
+      rightFighter.setAttribute(
+        "style",
+        "scale: 1.05; contrast: 1.1; transition: all .3s ease-in-out"
+      )
+    })
+  })
+</script>
