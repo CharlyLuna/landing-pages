@@ -105,6 +105,8 @@
 <script>
   const fighters = document.querySelector("#fighters")
   const fightersImages = fighters.querySelectorAll("img")
+  const infoElement = document.querySelector("#info") as HTMLElement
+  const combatElement = document.querySelector("#combat") as HTMLElement
 
   fightersImages.forEach((img) => {
     img.addEventListener("mouseleave", () => {
@@ -112,6 +114,13 @@
         img.style.filter = "none"
         img.style.transition = "all .3s ease-in-out"
         img.style.scale = "1"
+
+        // Show again the normal info and hide the versus info
+        infoElement.style.opacity = "1"
+        infoElement.style.transition = "all 0.3s ease-in-out"
+        combatElement.style.opacity = "0"
+        combatElement.style.visibility = "hidden"
+        combatElement.style.transition = "all 0.3s ease-in-out"
       })
     })
     img.addEventListener("mouseenter", () => {
@@ -127,6 +136,13 @@
         img.style.filter = "blur(2px) grayscale(.8)"
         img.style.transition = "all .3s ease-in-out"
       })
+
+      // Hide info box and show the versus info
+      infoElement.style.opacity = "0"
+      infoElement.style.transition = "all 0.3s ease-in-out"
+      combatElement.style.opacity = "1"
+      combatElement.style.visibility = "visible"
+      combatElement.style.transition = "all 0.3s ease-in-out"
 
       // Highlight the vs pair of fighters
       leftFighter.style.scale = "1.05"

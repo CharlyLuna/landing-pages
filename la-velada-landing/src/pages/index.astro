@@ -1,4 +1,5 @@
 ---
+import CombatBox from "../components/CombatBox.astro"
 import FightersSection from "../components/FightersSection.astro"
 import InfoBox from "../components/InfoBox.astro"
 ---
@@ -14,7 +15,7 @@ import InfoBox from "../components/InfoBox.astro"
   <body>
     <header class='relative'>
       <div
-        class='absolute z-10 top-6 lg:top-8 w-screen flex flex-col gap-1 justify-center items-center'
+        class='md:absolute z-10 my-4 md:mt-0 top-6 lg:top-8 w-screen flex flex-col gap-1 justify-center items-center'
       >
         <img
           class='w-20 md:w-36 lg:w-64 h-auto'
@@ -36,6 +37,7 @@ import InfoBox from "../components/InfoBox.astro"
     <main>
       <FightersSection />
       <InfoBox />
+      <CombatBox />
     </main>
 
     <footer></footer>
