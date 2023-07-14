@@ -1,9 +1,10 @@
 ---
-const { color, title, subtitle } = Astro.props
+const { color, title, subtitle, id } = Astro.props
 const textColor = `text-${color}`
 ---
 
 <section
+  id={id}
   class='landing-section bg-black h-screen w-full text-center overflow-hidden relative'
   data-header-color={color}
 >

@@ -1,9 +1,9 @@
 ---
 import Section from "./Section.astro"
-const { model, subtitle, textButton, secondTextButton, image } = Astro.props
+const { model, subtitle, textButton, secondTextButton, image, id } = Astro.props
 ---
 
-<Section title={model} subtitle={subtitle} color='black'>
+<Section title={model} subtitle={subtitle} color='black' id={id}>
   <img
     slot='background'
     class='object-center object-cover h-full w-full'
