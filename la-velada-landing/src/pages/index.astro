@@ -11,6 +11,21 @@ import InfoBox from "../components/InfoBox.astro"
     <meta name='viewport' content='width=device-width' />
     <meta name='generator' content={Astro.generator} />
     <title>La Velada del Año - Landing page</title>
+
+    <link
+      rel='preload'
+      href='/fonts/boxing.woff2'
+      as='font'
+      type='font/woff2'
+      crossorigin='anonymous'
+    />
+    <link
+      rel='preload'
+      href='/fonts/boxing-striped.woff2'
+      as='font'
+      type='font/woff2'
+      crossorigin='anonymous'
+    />
   </head>
   <body>
     <header class='relative'>
@@ -50,13 +65,15 @@ import InfoBox from "../components/InfoBox.astro"
   }
   @font-face {
     font-family: "Boxing";
-    src: url("/fonts/boxing.ttf");
+    src: url("/fonts/boxing.woff2") format("woff2");
     font-weight: bold;
+    font-display: swap;
   }
 
   @font-face {
     font-family: "Boxing Striped";
-    src: url("/fonts/boxing-striped.ttf");
+    src: url("/fonts/boxing-striped.woff2") format("woff2");
     font-weight: bold;
+    font-display: swap;
   }
 </style>
